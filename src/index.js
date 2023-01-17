@@ -9,14 +9,24 @@ export default {
 	  }
 
 	  if (url.pathname === '/thumbnail') {
+		const imageURL = "https://github.com/ricknmartin/thumbnail-image/blob/main/assets/background-image.jpeg?raw=true"
+		
 		fetch(imageURL, {
-		  cf: {
-			image: {}
-		  }
-		})
-	  }
-
+			cf: {
+			  image: {
+				width: 1280,
+				height: 720,
+				draw: [
+				  {
+					url: 'https://wrangler-to-text.ricardo-martins.workers.dev',
+					left: 40,
+				  },
+				],
+			  },
+			},
+		   });
 
 	  return new Response('Image Resizing with a Worker')
 	}
    }
+}
